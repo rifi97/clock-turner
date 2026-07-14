@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <title>시계 돌리기</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-labelledby="app-title">
+      <h1 id="app-title" class="sr-only">시계 돌리기</h1>
+
+      <section class="clock-region" aria-label="재생 시계">
+        <canvas id="clock" width="640" height="640" aria-label="현재 재생 시각을 보여주는 아날로그 시계"></canvas>
+      </section>
+
+      <form id="clock-form" class="settings" novalidate>
+        <label class="field-row" for="start-time">
+          <span>시작 시각</span>
+          <input id="start-time" name="startTime" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="00:00:00.00" aria-describedby="time-format" />
+        </label>
+        <label class="field-row" for="end-time">
+          <span>종료 시각</span>
+          <input id="end-time" name="endTime" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="00:00:08.00" aria-describedby="time-format" />
+        </label>
+        <label class="field-row duration-row" for="duration">
+          <span>감기는 시간</span>
+          <span class="duration-input"><input id="duration" name="duration" inputmode="decimal" type="text" autocomplete="off" spellcheck="false" value="8" /><b>초</b></span>
+        </label>
+      </form>
+
+      <p id="time-format" class="sr-only">시간은 시:분:초.소수점 두 자리 형식으로 입력합니다.</p>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <button id="play-button" class="play-button" type="button">시계 돌리기</button>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
